@@ -1,0 +1,61 @@
+name: hazard_hero
+description: Offline-first community disaster preparedness application.
+publish_to: none
+version: 1.1.2+4
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.5.0
+  drift: ^2.31.0
+  drift_flutter: ^0.2.8
+  sqlite3: ^2.9.4
+  connectivity_plus: 6.1.5
+  cryptography: ^2.9.0
+  url_launcher: ^6.3.2
+  flutter_map: ^8.3.1
+  latlong2: ^0.10.1
+  uuid: ^4.5.3
+  cupertino_icons: ^1.0.9
+  flutter_riverpod: ^2.6.1
+  go_router: ^17.2.3
+  flutter_secure_storage: ^10.3.1
+  shared_preferences: ^2.5.5
+  path_provider: ^2.1.5
+  video_player: ^2.10.1
+  youtube_player_iframe: ^5.2.2
+  webview_flutter: ^4.10.0
+  crypto: ^3.0.7
+  file_picker: ^11.0.2
+  flutter_admin_scaffold: ^1.4.0
+  responsive_framework: ^1.5.1
+  data_table_2: ^2.5.15
+  fl_chart: ^0.70.2
+  google_fonts: ^6.2.1
+  auto_size_text: ^3.0.0
+  animated_text_kit: ^4.2.2
+  font_awesome_flutter: ^10.7.0
+  flutter_svg: ^2.0.10+1
+  material_symbols_icons: ^4.2713.0
+  flex_color_scheme: ^8.3.1
+  flutter_colorpicker: ^1.1.0
+  responsive_builder: ^0.7.1
+  flutter_screenutil: ^5.9.3
+  animations: ^2.0.11
+  lottie: ^3.1.2
+  flutter_animate: ^4.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.31.0
+  build_runner: ^2.15.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

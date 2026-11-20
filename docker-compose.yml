@@ -1,0 +1,41 @@
+services:
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: hazard_hero
+      MYSQL_USER: hazard_hero
+      MYSQL_PASSWORD: hazard_hero_dev
+      MYSQL_ROOT_PASSWORD: root_dev_only
+    ports:
+      - "3306:3306"
+    volumes:
+      - hazard_hero_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot_dev_only"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      DJANGO_SECRET_KEY: local-development-key
+      DJANGO_DEBUG: "true"
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,10.0.2.2
+      MYSQL_DATABASE: hazard_hero
+      MYSQL_USER: hazard_hero
+      MYSQL_PASSWORD: hazard_hero_dev
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      API_AUTH_TOKEN: hazard-hero-dev-token
+    command: sh -c "python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  hazard_hero_mysql:
